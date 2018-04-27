@@ -8,7 +8,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var reservation = [];
+var reservations = [];
 var waitList = [];
 
 app.get("/", function (req, res) {
@@ -23,6 +23,21 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.post("/api/reservation", function (req, res) {
+    var newReservation = req.body;
+
+    console.log(newReservation);
+
+    if (reservations.length < 5) {
+        reservations.push(newReservation)
+        console.log("RESERVATIONS: " + reservations)
+        console.log(reservations.length)
+    } else {
+        waitList.push(newReservation)
+        console.log("WAIT LIST: " + waitList)
+        console.log(waitList.length)
+    };
+});
 
 
 app.listen(PORT, function () {
