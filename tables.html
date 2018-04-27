@@ -72,13 +72,13 @@
                 for (var i = 0; i < data.length; i++) {
                     var wellSection = $("<div>");
                     wellSection.addClass("well");
-                    wellSection.attr("id", "character-well-" + i);
+                    wellSection.attr("id", "wait-well-" + i);
                     $("#wait-section").append(wellSection);
 
-                    $("#character-well-" + i).append("<h2>Name: " + data[i].name + "</h2>");
-                    $("#character-well-" + i).append("<h3>Email: " + data[i].email + "</h4>");
-                    $("#character-well-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
-                    $("#character-well-" + i).append("<h3>ID: " + data[i].id + "</h4>");
+                    $("#wait-well-" + i).append("<h2>Name: " + data[i].name + "</h2>");
+                    $("#wait-well-" + i).append("<h3>Email: " + data[i].email + "</h4>");
+                    $("#wait-well-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
+                    $("#wait-well-" + i).append("<h3>ID: " + data[i].id + "</h4>");
                 }
             });
         </script>
