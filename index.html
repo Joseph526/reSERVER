@@ -13,21 +13,38 @@
         crossorigin="anonymous"></script>
 </head>
 
+<style>
+    #rosie {
+        border-radius: 15px;
+        padding: 50px;
+    }
+
+    .center {
+        margin-top: 100px;
+        text-align: center;
+    }
+</style>
+
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="jumbotron">
-                <h1>Hey there, hungry</h1>
-                <hr>
-                <h2>
-                    <span class="
+                <div class="col-md-3">
+                    <img id="rosie" src="rosie.jpg" height="500px" alt="Rosie the Robot">
+                </div>
+                <div class="col-md-9 center">
+                    <h1>Hey there, hungry</h1>
+                    <hr>
+                    <h2>
+                        <span class="
                 glyphicon glyphicon-glass"></span>
-                We're a little BYOB with only 5 tables</h2>
-                <button type="button" class="btn btn-primary btn-lg">View Tables</button>
-                <button type="button" class="btn btn-success btn-lg">Make a Reservation</button>
-            </div>
+                        We're a little BYOB with only 5 tables</h2>
+                    <button type="button" class="btn btn-primary btn-lg">View Tables</button>
+                    <button type="button" class="btn btn-success btn-lg">Make a Reservation</button>
+                </div>
         </div>
-        <a>API Table Link</a> | <a>API Wait List</a> | <a>GitHub Repo</a>
+        <a>API Table Link</a> |
+        <a>API Wait List</a> |
+        <a>GitHub Repo</a>
     </div>
 
 </body>
