@@ -40,8 +40,8 @@ app.post("/api/reservation", function (req, res) {
         reservations.push(newReservation)
     } else {
         waitList.push(newReservation)
-        console.log(waitList.length)
     };
+    res.end();
 });
 
 app.listen(PORT, function () {
