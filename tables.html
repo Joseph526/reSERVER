@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,10 +23,14 @@
                 glyphicon glyphicon-glass"></span>Give us your money</h1>
                 <hr>
                 <h2>Current Reservations and Waiting List</h2>
-                <a href="/reserve"><button type="button" class="btn btn-success btn-lg">Make a Reservation</button></a>
-                <a href="/"><button type="button" class="btn btn-default btn-lg">
-                    <span class="glyphicon glyphicon-home"></span>
-                </button></a>
+                <a href="/reserve">
+                    <button type="button" class="btn btn-success btn-lg">Make a Reservation</button>
+                </a>
+                <a href="/">
+                    <button type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -39,27 +45,44 @@
             <div class="panel-heading">
                 <h4>Waiting List</h4>
             </div>
-            <div class="panel-body"></div>
+            <div class="panel-body" id="wait-section"></div>
         </div>
 
-        <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/bunsushi/reSERVER">GitHub Repo</a>
+        <a href="/api/tables">API Table Link</a> |
+        <a href="/api/waitlist">API Wait List</a> |
+        <a href="https://github.com/bunsushi/reSERVER">GitHub Repo</a>
 
-<script type="text/javascript">
+        <script type="text/javascript">
 
-    $.get("/api/tables", function(data) {
-      for (var i = 0; i < 5; i++) {
-        var wellSection = $("<div>");
-        wellSection.addClass("well");
-        wellSection.attr("id", "character-well-" + i);
-        $("#well-section").append(wellSection);
+            $.get("/api/tables", function (data) {
+                for (var i = 0; i < 5; i++) {
+                    var wellSection = $("<div>");
+                    wellSection.addClass("well");
+                    wellSection.attr("id", "character-well-" + i);
+                    $("#well-section").append(wellSection);
 
-        $("#character-well-" + i).append("<h2>Name: " + data[i].name + "</h2>");
-        $("#character-well-" + i).append("<h3>Email: " + data[i].email + "</h4>");
-        $("#character-well-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
-        $("#character-well-" + i).append("<h3>ID: " + data[i].id + "</h4>");
-      }
-    });
-  </script>
+                    $("#character-well-" + i).append("<h2>Name: " + data[i].name + "</h2>");
+                    $("#character-well-" + i).append("<h3>Email: " + data[i].email + "</h4>");
+                    $("#character-well-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
+                    $("#character-well-" + i).append("<h3>ID: " + data[i].id + "</h4>");
+                }
+            });
+
+            $.get("/api/waitlist", function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var wellSection = $("<div>");
+                    wellSection.addClass("well");
+                    wellSection.attr("id", "character-well-" + i);
+                    $("#wait-section").append(wellSection);
+
+                    $("#character-well-" + i).append("<h2>Name: " + data[i].name + "</h2>");
+                    $("#character-well-" + i).append("<h3>Email: " + data[i].email + "</h4>");
+                    $("#character-well-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
+                    $("#character-well-" + i).append("<h3>ID: " + data[i].id + "</h4>");
+                }
+            });
+        </script>
 
 </body>
+
 </html>
