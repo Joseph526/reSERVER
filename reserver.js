@@ -23,6 +23,17 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.post("/api/reservation", function (req, res) {
+    var newReservation = req.body;
+
+    console.log(request);
+
+    if (reservation.length <= 5) {
+        reservation.push(request)
+    } else {
+        waitList.push(request)
+    };
+});
 
 
 app.listen(PORT, function () {
