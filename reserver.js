@@ -23,6 +23,14 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.get("/api/tables", function (req, res) {
+    return res.json(reservations);
+});
+
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitList);
+});
+
 app.post("/api/reservation", function (req, res) {
     var newReservation = req.body;
 
@@ -30,15 +38,11 @@ app.post("/api/reservation", function (req, res) {
 
     if (reservations.length < 5) {
         reservations.push(newReservation)
-        console.log("RESERVATIONS: " + reservations)
-        console.log(reservations.length)
     } else {
         waitList.push(newReservation)
-        console.log("WAIT LIST: " + waitList)
         console.log(waitList.length)
     };
 });
-
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
